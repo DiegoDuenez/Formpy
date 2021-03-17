@@ -34,7 +34,7 @@ class Form():
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="%s">
-            <title> formpy 1.0 </title>
+            <title> formpy 0.0.1 </title>
         </head> 
 
         <body>
@@ -351,12 +351,10 @@ class Form():
         mensaje = self.f
         f.write(mensaje)
         f.close()
-        print(self.f)
         return self
 
     def toHTML(self, withEndHTML = False):
         if withEndHTML == True:
-            print(path)
             self.f += """
 
             </form>
@@ -370,7 +368,6 @@ class Form():
             f.write(mensaje)
             f.close()
         else:
-            print(path)
             self.f += """
 
             </form>
@@ -382,7 +379,6 @@ class Form():
     
     def withEndHTML(self, opc):
         if opc == True:
-            print(path)
             self.endHtml += """
         </body>
 
