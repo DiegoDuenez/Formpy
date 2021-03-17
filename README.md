@@ -28,7 +28,7 @@ from formpy import Form
 
 ### Instanciar nuevo formulario
 
-#### Form()
+Clase Form
 
 #### Parametros
 
@@ -47,8 +47,8 @@ formId
 onlyForm
 
 - Boolean
-- Si el parametro es True unicamente mostrara el archivo con la etiqueta <form>
-- Si es parametro es False mostrara las etiquetas comunes de un archivo HTML Y la etiqueta <form>
+- Si el parametro es True unicamente mostrara el archivo con la etiqueta form
+- Si es parametro es False mostrara las etiquetas comunes de un archivo HTML Y la etiqueta form
 
 styleLink
 
@@ -66,11 +66,24 @@ method
 - Estable el atributo method del formulario
 
 
+#### Usos
+
+Primer uso
 
 ```python
 from formpy import Form
 
 fUsers = Form("Users")
+
+
+```
+
+Otro uso
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", formId= "frmusers", styleLink="../estilos.css")
 
 
 ```
