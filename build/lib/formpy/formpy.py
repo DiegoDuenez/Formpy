@@ -229,7 +229,7 @@ class Form():
             inp = ""
             for v, k in dic.items():
                 inp += " %s='%s'" % (v,k)
-            self.f += """
+                self.f += """
                 <button%s> %s </button>
                     """ % (inp, text)
             return self
@@ -237,7 +237,7 @@ class Form():
             inp = ""
             for v, k in dic.items():
                 inp += " %s='%s'" % (v,k)
-            self.f += """
+                self.f += """
                 <button%s>  </button>
                     """ % (inp)
             return self
@@ -252,7 +252,7 @@ class Form():
             inp = ""
             for v, k in dic.items():
                 inp += " %s='%s'" % (v,k)
-            self.f += """
+                self.f += """
                 <img%s>
                     """ % (inp)
             return self
@@ -262,7 +262,7 @@ class Form():
             inp = ""
             for v, k in dic.items():
                 inp += " %s='%s'" % (v,k)
-            self.f += """
+                self.f += """
                 <textarea%s> </textarea
                     """ % (inp)
             return self
@@ -270,7 +270,7 @@ class Form():
             inp = ""
             for v, k in dic.items():
                 inp += " %s='%s'" % (v,k)
-            self.f += """
+                self.f += """
                 <textarea%s> %s </textarea>
                     """ % (inp, text)
             return self
@@ -284,7 +284,7 @@ class Form():
         inp = ""
         for v, k in dic.items():
             inp += " %s='%s'" % (v,k)
-        self.f += """
+            self.f += """
                 <select%s> 
                 """ % (inp)
         return self
@@ -293,7 +293,7 @@ class Form():
         inp = ""
         for v, k in dic.items():
             inp += " %s='%s'" % (v,k)
-        self.f += """
+            self.f += """
                     <option%s> %s </option>
                 """ % (inp, text)
         return self
@@ -305,8 +305,7 @@ class Form():
         return self
     
     def br(self):
-        self.f += """
-                <br>
+        self.f += """<br>
             """ 
         return self
 
