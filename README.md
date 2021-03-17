@@ -366,7 +366,7 @@ dict (obligatorio)
 - Dict
 - Establece los atributos que tendra la etiqueta option
 
-text
+text (Opcional)
 
 - String
 - Establece un texto dentro de la etiqueta option
@@ -407,6 +407,331 @@ Users.html
                     
 
 </form>
+            
+
+```
+
+openSection()
+
+- Implementa la etiqueta de apertura para seccionar otras etiquetas dentro de ella
+
+openSection() recibe dos parametros:
+
+etiqueta (obligatorio)
+
+- String
+- Establece la etiqueta que aperture la sección
+
+text (Opcional)
+
+- String
+- Establece un texto dentro de la etiqueta elegida
+
+closeSection()
+
+- Implementa la etiqueta de cierre para la sección
+
+closeSection() recibe dos parametros:
+
+etiqueta (obligatorio)
+
+- String
+- Establece la etiqueta que cierre la sección
+
+text (Opcional)
+
+- String
+- Establece un texto a la derecha de la etiqueta
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+at = {"name":"mi-select"}
+op = {"value":"1"}
+
+fUsers.openSection("div").openSelect(at).withOption(op, "Valor 1").closeSelect().closeSection("div").toHTML()
+
+
+```
+
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+<div>
+
+    <select name='mi-select'> 
+
+        <option value='1'> Valor 1 </option>
+
+    </select> 
+
+</div>
+                    
+
+</form>
+            
+
+```
+
+br()
+
+- Implementa una etiqueta br
+
+br() no recibe ningun parametro
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+atN = {"name":"nombre"}
+atE = {"type":"number", "name":"edad"}
+
+fUsers.input(atN, p="Ingresa tu nombre:").br().input(atE, p="Ingresa tu edad:", text="(+18)").toHTML()
+
+
+```
+
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+<div>
+
+    <p> Ingresa tu nombre: <input type='text' name='nombre' >  </p>
+                
+    <br>
+
+    <p> Ingresa tu edad: <input type='number' name='edad' > (+18) </p> 
+
+</div>
+                    
+
+</form>
+            
+
+```
+
+toHTML()
+
+- Convierte todo el Form y su estructura especificada en HTML
+
+toHTML() recibe un parametro opcional:
+
+withEndHTML 
+
+- Boolean
+- Establece si se cerraran las etiquetas html y body
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=False, formId="frmusers")
+
+atN = {"name":"nombre"}
+atE = {"type":"number", "name":"edad"}
+
+fUsers.input(atN, p="Ingresa tu nombre:").br().input(atE, p="Ingresa tu edad:", text="(+18)").toHTML(withEndHTML=True)
+
+```
+
+Users.html
+
+```html
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title> formpy 0.0.1 </title>
+</head> 
+
+<body>
+
+    <form action='' method='' id='frmusers'>
+
+        <p> Ingresa tu nombre: <input type='text' name='nombre' >  </p>
+
+        <br>
+
+        <p> Ingresa tu edad: <input type='number' name='edad' > (+18) </p>
+
+
+    </form>
+
+</body>
+
+</html>
+           
+
+```
+
+
+toMerge()
+
+- Puede unir un Form con otro Form en el archivo especificado
+
+toMerge() recibe un parametro obligatorio:
+
+forForm 
+
+- String
+- Establece a que archivo (Formulario) se debera unir
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", formId="frmusers")
+fEsc = Form("Escolaridad", onlyForm=True, formId="frmesc", method="POST")
+
+atN = {"name":"nombre"}
+atE = {"type":"number", "name":"edad"}
+atEs = {"name":"esc"}
+
+fUsers.input(atN, p="Ingresa tu nombre:").br().input(atE, p="Ingresa tu edad:", text="(+18)").toHTML()
+
+fEsc.input(atEs, p="Ingresa tu grado escolar:").br().input(atE, p="Ingresa tu año de inicio:").toMerge("Users").toHTML()
+
+
+
+```
+
+Users.html
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title> formpy 0.0.1 </title>
+</head> 
+
+<body>
+
+    <form action='' method='' id='frmusers'>
+
+        <p> Ingresa tu nombre: <input type='text' name='nombre' >  </p>
+
+        <br>
+
+        <p> Ingresa tu edad: <input type='number' name='edad' > (+18) </p>
+
+
+    </form>
+
+    <form action='' method='POST' id='frmesc'>
+
+        <p> Ingresa tu grado escolar: <input type='text' name='esc' >  </p>
+
+        <br>
+
+        <p> Ingresa tu año de inicio: <input type='number' name='edad' >  </p>
+
+
+    </form>
+        
+            
+
+```
+
+withEndHTML()
+
+- Esta funcion va anidada con toMerge() para hacer cerrar la etiqueta html y body
+
+withEndHTML() recibe un parametro obligatorio:
+
+opc
+
+- Boolean
+- Establece si se cerraran las etiquetas html y body
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=False, formId="frmusers")
+fEsc = Form("Escolaridad", onlyForm=True, formId="frmesc", method="POST")
+
+atN = {"name":"nombre"}
+atE = {"type":"number", "name":"edad"}
+atEs = {"name":"escolaridad"}
+
+fUsers.input(atN, p="Ingresa tu nombre:").br().input(atE, p="Ingresa tu edad:", text="(+18)")
+
+fEsc.input(atEs, p="Ingresa tu grado escolar:").br().input(atE, p="Ingresa tu año de inicio:").toMerge("Users").withEndHTML(True).toHTML()
+
+
+
+```
+
+Users.html
+
+```html
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title> formpy 0.0.1 </title>
+</head> 
+
+<body>
+
+    <form action='' method='' id='frmusers'>
+
+        <p> Ingresa tu nombre: <input type='text' name='nombre' >  </p>
+
+        <br>
+
+        <p> Ingresa tu edad: <input type='number' name='edad' > (+18) </p>
+
+
+    </form>
+
+    <form action='' method='POST' id='frmesc'>
+
+        <p> Ingresa tu grado escolar: <input type='text' name='escolaridad' >  </p>
+
+        <br>
+
+        <p> Ingresa tu a�o de inicio: <input type='number' name='edad' >  </p>
+
+
+    </form>
+
+</body>
+
+</html>
+            
+        
             
 
 ```
