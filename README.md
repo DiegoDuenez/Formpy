@@ -37,7 +37,7 @@ La clase Form puede recibir distintos parametros, pero solamente el parametro **
 formName
 
 - String
-- Estable el formulario/archivo .html
+- Estable el nombre del formulario/archivo .html
 
 formId
 
@@ -47,8 +47,8 @@ formId
 onlyForm
 
 - Boolean
-- Si el parametro es True unicamente mostrara el archivo con etiqueta <form>
-- Si es parametro es False mostrara las etiquetas comunes de un archivo HTML junto con la etiqueta <form>
+- Si el parametro es True unicamente mostrara el archivo con la etiqueta <form>
+- Si es parametro es False mostrara las etiquetas comunes de un archivo HTML Y la etiqueta <form>
 
 styleLink
 
