@@ -17,19 +17,23 @@ pip install Formpy
 
 Importa el archivo en tu codigo de Python.
 
-<pre>from formpy import Form</pre>
+```python
+from formpy import Form
+```
 
 ## Empezando 🚀
 
 ### Crear carpeta forms (Obligatoria antes de empezar)
 
 
-```python
-from typing import Iterator
+### Instanciar nuevo formulario
 
-def fib(n: int) -> Iterator[int]:
-    a, b = 0, 1
-    while a < n:
-        yield a
-        a, b = b, a + b
+#### Form(formName, formId, onlyForm, styleLink, action, method)
+
+```python
+from formpy import Form
+
+fUsers = Form("Users")
+
+
 ```
