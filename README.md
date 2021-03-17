@@ -169,6 +169,8 @@ fUsers.setMethod("GET")
 
 input()
 
+- Implementa una etiqueta input al formulario
+
 input() recibe tres parametros opcionales:
 
 dict
@@ -193,7 +195,7 @@ from formpy import Form
 
 fUsers = Form("Users", onlyForm=True)
 
-at = {"type":"number", "name":"nombre"}
+at = {"type":"number", "name":"edad"}
 
 fUsers.input(at, p="Ingresa tu edad:", text="(+18)").toHTML()
 
@@ -214,8 +216,197 @@ Users.html
 
 ```
 
+button()
+
+- Implementa un boton en el formulario
+
+button() recibe dos parametros opcionales:
+
+dict
+
+- Dict
+- Establece los atributos que tendra la etiqueta button
+
+text
+
+- String
+- Establece un texto dentro del boton
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+at = {"type":"submit"}
+
+fUsers.button(at, "Enviar").toHTML()
 
 
+```
+
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+    <button type='submit'> Enviar </button>
+                    
+
+</form>
+            
+
+```
+
+img()
+
+- Implementa una imagen 
+
+img() recibe un parametro obligatorio:
+
+dict
+
+- Dict
+- Establece los atributos que tendra la etiqueta img
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+at = {"src":"emblema.png", "alt":"Emblema de la empresa"}
+
+fUsers.img(at).toHTML()
 
 
+```
 
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+    <img src='emblema.png' alt='Emblema de la empresa'>
+                    
+
+</form>
+            
+
+```
+
+textarea()
+
+- Implementa un textarea al formulario
+
+textarea() recibe dos parametros opciones:
+
+dict
+
+- Dict
+- Establece los atributos que tendra la etiqueta textarea
+
+text
+
+- String
+- Establece un texto dentro de la etiqueta textarea
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+at = {"placeholder":"Comentarios..."}
+
+fUsers.textarea(at).toHTML()
+
+
+```
+
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+    <textarea placeholder='Comentarios...'> </textarea>
+                    
+
+</form>
+            
+
+```
+
+openSelect()
+
+- Implementa la apertura de la etiqueta select
+
+openSelect() recibe un parametro obligatorio:
+
+dict
+
+- Dict
+- Establece los atributos que tendra la etiqueta select
+
+
+withOption() 
+
+- Implementa la etiqeuta option dentro de un select
+
+withOption() recibe dos parametros:
+
+dict (obligatorio)
+
+- Dict
+- Establece los atributos que tendra la etiqueta option
+
+text
+
+- String
+- Establece un texto dentro de la etiqueta option
+
+
+closeSelect()
+
+- Implementa el cierre de la etiqueta select
+
+closeSelect() no recibe ningun parametro
+
+#### Usos
+
+```python
+from formpy import Form
+
+fUsers = Form("Users", onlyForm=True)
+
+at = {"name":"mi-select"}
+op = {"value":"1"}
+
+fUsers.openSelect(at).withOption(op, "Valor 1").closeSelect().toHTML()
+
+
+```
+
+Users.html
+
+```html
+  
+<form action='' method='' id=''>
+            
+    <select name='mi-select'> 
+                
+        <option value='1'> Valor 1 </option>
+
+    </select> 
+                    
+
+</form>
+            
+
+```
