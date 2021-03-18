@@ -1,4 +1,4 @@
-# Formpy 0.0.2 🧾🐍
+# Formpy 0.0.2 
 Librería para crear formularios en HTML desde Python.
 
 ## Preferencias
