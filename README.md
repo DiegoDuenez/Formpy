@@ -39,12 +39,12 @@ La clase Form puede recibir distintos parametros, pero solamente el parametro **
 formName
 
 - String
-- Estable el nombre del formulario/archivo .html
+- Establece el nombre del formulario/archivo .html
 
 formId
 
 - String
-- Estable el atributo id del formulario
+- Establece el atributo id del formulario
 
 onlyForm
 
@@ -55,17 +55,17 @@ onlyForm
 styleLink
 
 - String
-- Estable el link stylesheet (css) que tendra el archivo
+- Establece el link stylesheet (css) que tendra el archivo
 
 action
 
 - String
-- Estable el atributo action del formulario
+- Establece el atributo action del formulario
 
 method
 
 - String
-- Estable el atributo method del formulario
+- Establece el atributo method del formulario
 
 
 #### Usos
@@ -95,7 +95,7 @@ fUsers = Form("Users", formId= "frmusers", styleLink="../estilos.css")
 setId()
 
 - String
-- Estable el atributo id del formulario
+- Establece el atributo id del formulario
 - Se puede usar despues de instanciar el Form (con o sin el parametro formId)
 
 ```python
@@ -111,7 +111,7 @@ fUsers.setId("frmusers")
 setStyleLink()
 
 - List
-- Estable mas de un link stylesheet al archivo .html
+- Establece mas de un link stylesheet al archivo .html
 
 
 ```python
@@ -132,7 +132,7 @@ fUsers.setStyleLink(styles)
 setAction()
 
 - String
-- Estable el atributo action del formulario
+- Establece el atributo action del formulario
 - Se puede usar despues de instanciar el Form (con o sin el parametro formAction)
 
 
@@ -149,7 +149,7 @@ fUsers.setAction("../mi-form.php")
 setMethod()
 
 - String
-- Estable el atributo method del formulario
+- Establece el atributo method del formulario
 - Se puede usar despues de instanciar el Form (con o sin el parametro formMethod)
 
 
